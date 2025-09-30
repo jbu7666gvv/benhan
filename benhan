@@ -4,7 +4,7 @@ local Confirmed = false
 
 WindUI:Popup({
     Title = "本熊汉化",
-    Icon = "rbxassetid://129260712070622",
+    Icon = "rbxasstid://12",
     IconThemed = true,
     Content = "本熊汉化",
     Buttons = {
@@ -21,11 +21,11 @@ repeat wait() until Confirmed
 
 -- 修复后的代码将所有功能整合到一个统一的 WindUI 窗口中
 local Window = WindUI:CreateWindow({
-    Title = "本熊",
-    Icon = "rbxassetid://129260712070622",
+    Title = "本熊汉化",
+    Icon = "rbxasset",
     IconThemed = true,
     Author = "感谢使用",
-    Folder = "本熊",
+    Folder = "本熊汉化",
     Size = UDim2.fromOffset(580, 340),
     Transparent = true,
     Theme = "Dark",
@@ -35,83 +35,35 @@ local Window = WindUI:CreateWindow({
 })
 
 Window:Tag({
-        Title = "汉化",
+        Title = "？？？",
         Color = Color3.fromHex("#30ff6a")
+    })
+    Window:Tag({
+        Title = "汉化", 
+        Color = Color3.fromHex("#315dff")
     })
 
 -- 创建指定的大类（作为标签页）
 local Tabs = {
-    Home = Window:Tab({ Title = "主页", Icon = "crown" }),
-    Main = Window:Tab({ Title = "99夜", Icon = "zap" }),
+    Home = Window:Tab({ Title = "99夜", Icon = "crown" }),
+    Main = Window:Tab({ Title = "死铁轨", Icon = "zap" }),
+    Ninja = Window:Tab({ Title = "偷走脑红", Icon = "user" }),
 }
 
 Window:SelectTab(1)
 
--- 全局服务引用
-local Players = game:GetService("Players")
-local Workspace = game:GetService("Workspace")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local RunService = game:GetService("RunService")
-local ProximityPromptService = game:GetService("ProximityPromptService")
-
--- 本地玩家引用
-local LP = Players.LocalPlayer
-local Character = LP.Character or LP.CharacterAdded:Wait()
-
--- 客户端模块
-local ClientModule
-local EatRemote
-local function GetClientModule()
-    if not ClientModule then
-        ClientModule = require(LP:WaitForChild("PlayerScripts"):WaitForChild("Client"))
-        EatRemote = ClientModule and ClientModule.Events and ClientModule.Events.RequestConsumeItem
-    end
-    return ClientModule, EatRemote
-end
-
--- Cat Hub 原有功能
-local autoLoops = {}
-
-local function startLoop(name, callback, delay)
-    if autoLoops[name] then return end
-    autoLoops[name] = coroutine.wrap(function()
-        while autoLoops[name] do
-            pcall(callback)
-            task.wait(delay)
-        end
-    end)
-    task.spawn(autoLoops[name])
-end
-
-local function stopLoop(name)
-    if not autoLoops[name] then return end
-    autoLoops[name] = nil
-end
-
 --- 主页 Tab ---
 Tabs.Home:Paragraph({
-    Title = "欢迎",
-    Desc = "本熊汉化",
+    Title = "？？？",
+    Desc = "？？？",
 })
-Tabs.Main:Button({
+
+Tabs.Home:Button({
     Title = "h4x(要卡密)",
     Desc = "汉化",
     Callback = function()
         pcall(function()
-            local response = loadstring(game:HttpGet("https://raw.githubusercontent.com/jbu7666gvv/h4x6/refs/heads/main/h4x%E6%B1%89%E5%8C%96"))()
-            if response and #response > 100 then
-                loadstring(response)()
-            end
-        end)
-    end
-})
-
-Tabs.Main:Button({
-    Title = "虚空(无卡密)",
-    Desc = "汉化",
-    Callback = function()
-        pcall(function()
-            local response = loadstring(game:HttpGet("https://raw.githubusercontent.com/jbu7666gvv/xuu/refs/heads/main/xuu"))()
+            local response = game:HttpGet("https://raw.githubusercontent.com/jbu7666gvv/h4x6/refs/heads/main/h4x%E6%B1%89%E5%8C%96"))()
             if response and #response > 100 then
                 loadstring(response)()
             end
