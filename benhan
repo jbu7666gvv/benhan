@@ -4,7 +4,7 @@ local Confirmed = false
 
 WindUI:Popup({
     Title = "本熊汉化",
-    Icon = "rbxasstid://12",
+    Icon = "rbxassetid://118967527185182",
     IconThemed = true,
     Content = "本熊汉化",
     Buttons = {
@@ -22,7 +22,7 @@ repeat wait() until Confirmed
 -- 修复后的代码将所有功能整合到一个统一的 WindUI 窗口中
 local Window = WindUI:CreateWindow({
     Title = "本熊汉化",
-    Icon = "rbxasset",
+    Icon = "rbxassetid://118967527185182",
     IconThemed = true,
     Author = "感谢使用",
     Folder = "本熊汉化",
