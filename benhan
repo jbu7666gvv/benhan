@@ -93,12 +93,25 @@ Tabs.Home:Paragraph({
     Title = "欢迎",
     Desc = "本熊汉化",
 })
-Tabs.Home:Button({
+Tabs.Main:Button({
     Title = "h4x(要卡密)",
     Desc = "汉化",
     Callback = function()
         pcall(function()
             local response = loadstring(game:HttpGet("https://raw.githubusercontent.com/jbu7666gvv/h4x6/refs/heads/main/h4x%E6%B1%89%E5%8C%96"))()
+            if response and #response > 100 then
+                loadstring(response)()
+            end
+        end)
+    end
+})
+
+Tabs.Main:Button({
+    Title = "虚空(无卡密)",
+    Desc = "汉化",
+    Callback = function()
+        pcall(function()
+            local response = loadstring(game:HttpGet("https://raw.githubusercontent.com/jbu7666gvv/xuu/refs/heads/main/xuu"))()
             if response and #response > 100 then
                 loadstring(response)()
             end
